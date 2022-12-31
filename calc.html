@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Erweiterter Rechner</title>
+  </head>
+  <body>
+    <form>
+      <label for="zahl1">Zahl 1:</label><br>
+      <input type="text" id="zahl1" name="zahl1"><br>
+      <label for="zahl2">Zahl 2:</label><br>
+      <input type="text" id="zahl2" name="zahl2"><br><br>
+      <label for="operation">Operation:</label><br>
+      <select id="operation" name="operation">
+        <option value="addition">Addition</option>
+        <option value="subtraktion">Subtraktion</option>
+        <option value="multiplikation">Multiplikation</option>
+        <option value="division">Division</option>
+      </select><br><br>
+      <input type="button" value="Berechne Ergebnis" onclick="berechneErgebnis()">
+    </form> 
+    <p>Ergebnis: <span id="ergebnis"></span></p>
+    <script>
+      function berechneErgebnis() {
+        var zahl1 = document.getElementById("zahl1").value;
+        var zahl2 = document.getElementById("zahl2").value;
+        var operation = document.getElementById("operation").value;
+        var ergebnis;
+        switch (operation) {
+          case "addition":
+            ergebnis = parseInt(zahl1) + parseInt(zahl2);
+            break;
+          case "subtraktion":
+            ergebnis = parseInt(zahl1) - parseInt(zahl2);
+            break;
+          case "multiplikation":
+            ergebnis = parseInt(zahl1) * parseInt(zahl2);
+            break;
+          case "division":
+            ergebnis = parseInt(zahl1) / parseInt(zahl2);
+            break;
+        }
+        document.getElementById("ergebnis").innerHTML = ergebnis;
+      }
+    </script>
+  </body>
+</html>
